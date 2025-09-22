@@ -1,0 +1,6 @@
+{
+  "typescript.preferences.preferTypeOnlyAutoImports": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports.biome": "explicit"
+  }
+}

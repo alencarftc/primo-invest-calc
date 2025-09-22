@@ -1,0 +1,21 @@
+fail_fast: true
+pre-commit:
+  output: failure
+  parallel: true
+  commands:
+    check:
+      glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
+      run: npx @biomejs/biome check --write --no-errors-on-unmatched --files-ignore-unknown=true --colors=off {staged_files}
+      stage_fixed: true
+
+    type-check:
+      run: pnpm run type-check
+
+pre-push:
+  test:
+    test:
+    run: pnpm run test --bail --silent
+
+  build:
+    glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
+    run: pnpm run build:final
