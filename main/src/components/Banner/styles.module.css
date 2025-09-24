@@ -1,0 +1,22 @@
+.banner {
+    padding: 5.5rem 0;
+    background-color: #0B0B0B;
+}
+
+.banner__heading {
+    font-size: 1.633rem;
+    font-weight: 800;
+    letter-spacing: -0.52px;
+    line-height: 120%;
+    color: #FFFFFC;
+    font-family: 'Inter', sans-serif;
+}
+
+.banner__paragraph {
+    font-size: .816rem;
+    font-weight: 400;
+    letter-spacing: -0.26px;
+    line-height: 120%;
+    color: #BFBDB6;
+    font-family: 'Inter', sans-serif;
+}

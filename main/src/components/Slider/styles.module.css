@@ -1,0 +1,81 @@
+/* styles.module.css (com metodologia BEM) */
+
+/* --- BLOCK --- */
+/* O contêiner principal do componente. */
+/* --- ELEMENTS --- */
+
+.slider__label {
+  display: block;
+  margin-bottom: 1rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #222222;
+}
+
+.slider__container {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  caret-color: transparent;
+}
+
+/* A área interativa principal que contém o trilho e o polegar. */
+.slider__control {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  background-color: #F0F0F0;
+  height: 12.22px;
+  border-radius: 60px;
+}
+
+/* Indicador de foco para acessibilidade no elemento de controle. */
+.slider__control:focus-visible {
+  outline: 2px solid #54D4A0;
+  outline-offset: 4px;
+}
+
+/* O preenchimento colorido do trilho. */
+.slider__fill {
+  position: absolute;
+  height: 12.22px;
+  background-color: #54D4A0;
+  pointer-events: none;
+  border-radius: 60px;
+  /* Garante que o clique vá para o controle pai */
+}
+
+/* O polegar (handle) que o usuário arrasta. */
+.slider__thumb {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: #54D4A0;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transform: translateX(-50%);
+  transition: transform 0.1s ease;
+  pointer-events: none;
+}
+
+/* Efeito de hover no polegar quando o mouse passa sobre a área de controle. */
+.slider__control:hover .slider__thumb {
+  transform: translateX(-50%) scale(1.1);
+}
+
+/* O display de texto que mostra o valor atual. */
+.slider__value {
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  color: #495057;
+  user-select: none;
+}

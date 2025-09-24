@@ -24,11 +24,30 @@ const config: Config = {
       statements: 80,
     },
   },
+  collectCoverageFrom: [
+    'main/**/*.{js,jsx,ts,tsx}',
+    '!**/*.d.ts',
+    '!**/node_modules/**',
+    '!<rootDir>/out/**',
+    '!<rootDir>/.next/**',
+    '!<rootDir>/coverage/**',
+  ],
+  transform: {
+    '^.+\\.(ts|tsx)$': [
+      'ts-jest',
+      {
+        tsconfig: '<rootDir>/tsconfig.spec.json',
+      },
+    ],
+  },
+  transformIgnorePatterns: ['/node_modules/', '^.+\\.module\\.(css|sass|scss)$'],
+  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/tests/setup.ts'],
   moduleNameMapper: {
-    '@assets/*': ['./main/assets/*'],
-    '@core/*': ['./main/modules/core/*'],
+    '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
+    '@cgp/*': ['./main/src/*'],
+    '@cgp-core/*': ['./main/core/*'],
   },
 }
 

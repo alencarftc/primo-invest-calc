@@ -1,55 +1,13 @@
 {
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "plugins": [
       {
         "name": "typescript-plugin-css-modules"
       }
     ],
-    "target": "esnext",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "ESNext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "noEmit": true,
-    "incremental": true,
-    // module resolution
-    "moduleResolution": "bundler",
-    "module": "esnext",
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    // improve stability
-    "strict": true,
-    "alwaysStrict": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "strictNullChecks": true,
-    "strictBindCallApply": true,
-    "strictFunctionTypes": true,
-    "strictPropertyInitialization": true,
-    "useUnknownInCatchVariables": true,
-    // unused code
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "allowUnusedLabels": false,
-    "allowUnreachableCode": false,
-    // no implicit code
-    "noImplicitOverride": true,
-    "noImplicitReturns": true,
-    // others
-    "noUncheckedIndexedAccess": true,
-    // "noPropertyAccessFromIndexSignature": true,
-    "noFallthroughCasesInSwitch": true,
-    "forceConsistentCasingInFileNames": true,
-    "paths": {
-      "@cgp-core/*": [
-        "./main/core/*"
-      ]
-    }
+    "rootDir": ".",
+    "outDir": "dist"
   },
   "files": [
     "types/utils.d.ts"
@@ -60,6 +18,10 @@
     "**/*.tsx"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "dist",
+    ".next",
+    "**/*.test.ts",
+    "**/*.test.tsx"
   ]
 }

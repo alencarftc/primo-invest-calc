@@ -1,0 +1,8 @@
+/* Generated with Input range slider CSS style generator (version 20211225)
+https://toughengineer.github.io/demo/slider-styler */
+
+.form {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 3rem;
+}

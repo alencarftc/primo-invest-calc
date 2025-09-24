@@ -1,0 +1,19 @@
+.mt-9 {
+    margin-top: var(--spacing-9) !important;
+}
+
+.mt-4 {
+    margin-top: var(--spacing-4) !important;
+}
+
+.mb-4 {
+    margin-bottom: var(--spacing-4) !important;
+}
+
+.mb-3 {
+    margin-bottom: var(--spacing-3) !important;
+}
+
+.mb-2 {
+    margin-bottom: var(--spacing-2) !important;
+}
