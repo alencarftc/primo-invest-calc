@@ -7,6 +7,12 @@ const nextConfig: NextConfig = {
     serverSourceMaps: isProduction,
     preloadEntriesOnStart: false,
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    tsconfigPath: './tsconfig.build.json',
+  },
   productionBrowserSourceMaps: isProduction,
   reactStrictMode: true,
   distDir: 'dist',
@@ -14,7 +20,8 @@ const nextConfig: NextConfig = {
 
 const withBundleAnalyzer =
   process.env.ANALYZE === 'true'
-    ? require('@next/bundle-analyzer')({
+    ? // eslint-disable-next-line  @typescript-eslint/no-require-imports
+      require('@next/bundle-analyzer')({
         enabled: process.env.ANALYZE === 'true',
       })
     : (x: NextConfig) => x

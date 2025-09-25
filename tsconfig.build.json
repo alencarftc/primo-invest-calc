@@ -13,5 +13,15 @@
   },
   "files": ["types/utils.d.ts", "types/styles.d.ts"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "dist", ".next", "coverage", ".storybook"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    ".next",
+    "coverage",
+    "tests",
+    "stories",
+    ".storybook",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ]
 }

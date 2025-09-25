@@ -1,4 +1,1 @@
-export {
-  default,
-  getServerSideProps,
-} from '@cgp/InvestmentCalc/pages/InvestmentCalc'
+export { default, getServerSideProps } from '@cgp/InvestmentCalc/src/pages/InvestmentCalc'

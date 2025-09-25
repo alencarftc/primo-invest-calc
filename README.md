@@ -9,25 +9,25 @@ Um simulador de investimentos moderno e interativo, construído com Next.js e Ty
 
 ## ✨ Features
 
--   **Simulação Dinâmica**: Os cálculos são atualizados em tempo real conforme o usuário ajusta os valores nos sliders.
--   **Componentes Acessíveis**: O componente de Slider foi desenvolvido seguindo as diretrizes de acessibilidade WAI-ARIA, garantindo usabilidade via teclado e para leitores de tela.
--   **Design Responsivo**: Interface adaptada para uma experiência de usuário consistente em desktops e dispositivos móveis.
--   **Qualidade de Código**: O projeto é mantido com ferramentas de alta qualidade como Biome (linting e formatação) e Lefthook (Git hooks) para garantir a consistência do código.
--   **Componentização com Storybook**: Os componentes de UI são desenvolvidos e documentados de forma isolada utilizando o Storybook.
+- **Simulação Dinâmica**: Os cálculos são atualizados em tempo real conforme o usuário ajusta os valores nos sliders.
+- **Componentes Acessíveis**: O componente de Slider foi desenvolvido seguindo as diretrizes de acessibilidade WAI-ARIA, garantindo usabilidade via teclado e para leitores de tela.
+- **Design Responsivo**: Interface adaptada para uma experiência de usuário consistente em desktops e dispositivos móveis.
+- **Qualidade de Código**: O projeto é mantido com ferramentas de alta qualidade como Biome (linting e formatação) e Lefthook (Git hooks) para garantir a consistência do código.
+- **Componentização com Storybook**: Os componentes de UI são desenvolvidos e documentados de forma isolada utilizando o Storybook.
 
 ## 🛠️ Tech Stack
 
 A aplicação foi construída com um conjunto de tecnologias modernas focadas em performance, qualidade e experiência do desenvolvedor:
 
--   **Framework**: [Next.js](https://nextjs.org/) (com Pages Router e Turbopack)
--   **Linguagem**: [TypeScript](https://www.typescriptlang.org/)
--   **Estilização**: CSS Modules
--   **Testes**: [Jest](https://jestjs.io/) e [React Testing Library](https://testing-library.com/)
--   **Qualidade de Código**: [Biome](https://biomejs.dev/) (Linting e Formatação)
--   **Desenvolvimento de Componentes**: [Storybook](https://storybook.js.org/)
--   **Gerenciador de Pacotes**: [pnpm](https://pnpm.io/)
--   **Git Hooks**: [Lefthook](https://github.com/evilmartians/lefthook)
--   **CI/CD**: GitHub Actions
+- **Framework**: [Next.js](https://nextjs.org/) (com Pages Router e Turbopack)
+- **Linguagem**: [TypeScript](https://www.typescriptlang.org/)
+- **Estilização**: CSS Modules
+- **Testes**: [Jest](https://jestjs.io/) e [React Testing Library](https://testing-library.com/)
+- **Qualidade de Código**: [Biome](https://biomejs.dev/) (Linting e Formatação)
+- **Desenvolvimento de Componentes**: [Storybook](https://storybook.js.org/)
+- **Gerenciador de Pacotes**: [pnpm](https://pnpm.io/)
+- **Git Hooks**: [Lefthook](https://github.com/evilmartians/lefthook)
+- **CI/CD**: GitHub Actions
 
 ## 📂 Estrutura do Projeto
 
@@ -63,22 +63,25 @@ Siga os passos abaixo para configurar e rodar o projeto localmente.
 
 ### Pré-requisitos
 
--   [Node.js](https://nodejs.org/) (versão 20.x ou superior)
--   [pnpm](https://pnpm.io/installation)
+- [Node.js](https://nodejs.org/) (versão 20.x ou superior)
+- [pnpm](https://pnpm.io/installation)
 
 ### Instalação
 
 1.  **Clone o repositório:**
+
     ```bash
     git clone [https://github.com/alencarftc/primo-invest-calc.git](https://github.com/alencarftc/primo-invest-calc.git)
     ```
 
 2.  **Navegue até a pasta do projeto:**
+
     ```bash
     cd primo-invest-calc
     ```
 
 3.  **Instale as dependências:**
+
     ```bash
     pnpm install
     ```
@@ -92,19 +95,20 @@ Agora, abra [http://localhost:3000](http://localhost:3000) no seu navegador para
 
 ## 📜 Scripts Disponíveis
 
--   `pnpm dev`: Inicia a aplicação em modo de desenvolvimento com Turbopack.
--   `pnpm build`: Gera a build de produção da aplicação.
--   `pnpm start`: Inicia um servidor de produção com a build gerada.
--   `pnpm test`: Roda a suíte de testes unitários com Jest.
--   `pnpm test:watch`: Roda os testes em modo interativo (watch mode).
--   `pnpm lint`: Verifica e corrige problemas de lint e formatação com o Biome.
--   `pnpm storybook`: Inicia o ambiente do Storybook para visualização dos componentes.
+- `pnpm dev`: Inicia a aplicação em modo de desenvolvimento com Turbopack.
+- `pnpm build`: Gera a build de produção da aplicação.
+- `pnpm start`: Inicia um servidor de produção com a build gerada.
+- `pnpm test`: Roda a suíte de testes unitários com Jest.
+- `pnpm test:watch`: Roda os testes em modo interativo (watch mode).
+- `pnpm lint`: Verifica e corrige problemas de lint e formatação com o Biome.
+- `pnpm storybook`: Inicia o ambiente do Storybook para visualização dos componentes.
 
 ## ✅ Testes
 
 Os testes são fundamentais para garantir a qualidade e a estabilidade da aplicação. Utilizamos Jest e React Testing Library para testar os componentes e a lógica de negócio.
 
 Para rodar todos os testes, execute:
+
 ```bash
 pnpm test
 ```

@@ -1,8 +1,9 @@
-import '@cgp-core/styles/globals.css'
-import '@cgp-core/styles/normalize.css'
-import '@cgp-core/styles/theme.css'
-import '@cgp-core/styles/utilitary.css'
-import { cx } from '@cgp-core/utils'
+import '@cgp-core/src/styles/globals.css'
+import '@cgp-core/src/styles/normalize.css'
+import '@cgp-core/src/styles/theme.css'
+import '@cgp-core/src/styles/utilitary.css'
+
+import { cx } from '@cgp-core/src/utils'
 
 import type { AppProps } from 'next/app'
 import { Inter, Open_Sans, Raleway } from 'next/font/google'
