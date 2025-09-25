@@ -1,8 +1,22 @@
 import type { NextConfig } from 'next'
 
+const isProduction = process.env.NODE_ENV === 'production'
+
 const nextConfig: NextConfig = {
-  /* config options here */
+  experimental: {
+    serverSourceMaps: isProduction,
+    preloadEntriesOnStart: false,
+  },
+  productionBrowserSourceMaps: isProduction,
   reactStrictMode: true,
+  distDir: 'dist',
 }
 
-export default nextConfig
+const withBundleAnalyzer =
+  process.env.ANALYZE === 'true'
+    ? require('@next/bundle-analyzer')({
+        enabled: process.env.ANALYZE === 'true',
+      })
+    : (x: NextConfig) => x
+
+export default withBundleAnalyzer(nextConfig)

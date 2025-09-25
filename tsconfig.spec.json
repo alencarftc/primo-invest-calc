@@ -5,7 +5,9 @@
     "types": [
       "jest",
       "@testing-library/jest-dom"
-    ]
+    ],
+    "rootDir": ".",
+    "outDir": "dist"
   },
   "include": [
     "tests/setup.d.ts",
@@ -13,7 +15,7 @@
     ".next",
     "next-env.d.ts",
     "**/*.test.ts",
-    "**/*.test.tsx",
+    "**/*.test.tsx"
   ],
   "exclude": [
     "node_modules",

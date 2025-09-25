@@ -1,0 +1,116 @@
+.slider {
+  --track-size: 0.75em;
+  --thumb-size: 2.5em;
+
+  margin: 1.5rem 0;
+  width: 100%;
+
+  padding: 1rem 0;
+  -webkit-appearance: none;
+}
+.slider__value {
+  display: inline-block;
+  text-align: center;
+  width: inherit;
+}
+
+/*progress support*/
+.slider.slider-progress {
+  --range: calc(var(--max) - var(--min));
+  --ratio: calc((var(--value) - var(--min)) / var(--range));
+  --sx: calc(0.5 * 2em + var(--ratio) * (100% - 2em));
+}
+
+.slider:focus {
+  /* outline: none; */
+}
+
+/*webkit*/
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  border-radius: var(--thumb-size);
+  background: #54d4a0;
+  border: none;
+  box-shadow: none;
+  margin-top: calc(1em * 0.5 - var(--thumb-size) * 0.5);
+}
+
+.slider::-webkit-slider-runnable-track {
+  height: var(--track-size);
+  border: none;
+  border-radius: var(--track-size);
+  background: #f0f0f0;
+  box-shadow: none;
+}
+
+.slider.slider-progress::-webkit-slider-runnable-track {
+  background:
+    linear-gradient(#54d4a0, #54d4a0) 0 / var(--sx) 100% no-repeat,
+    #f0f0f0;
+}
+
+/*mozilla*/
+.slider::-moz-range-thumb {
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  border-radius: var(--thumb-size);
+  background: #54d4a0;
+  border: none;
+  box-shadow: none;
+}
+
+.slider::-moz-range-track {
+  height: var(--track-size);
+  border: none;
+  border-radius: var(--track-size);
+  background: #f0f0f0;
+  box-shadow: none;
+}
+
+.slider.slider-progress::-moz-range-track {
+  background:
+    linear-gradient(#54d4a0, #54d4a0) 0 / var(--sx) 100% no-repeat,
+    #f0f0f0;
+}
+
+/*ms*/
+.slider::-ms-fill-upper {
+  background: transparent;
+  border-color: transparent;
+}
+
+.slider::-ms-fill-lower {
+  background: transparent;
+  border-color: transparent;
+}
+
+.slider::-ms-thumb {
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  border-radius: var(--thumb-size);
+  background: #54d4a0;
+  border: none;
+  box-shadow: none;
+  margin-top: 0;
+  box-sizing: border-box;
+}
+
+.slider::-ms-track {
+  height: var(--track-size);
+  border-radius: var(--track-size);
+  background: #f0f0f0;
+  border: none;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+.slider.slider-progress::-ms-fill-lower {
+  height: var(--track-size);
+  border-radius: 0.5em 0 0 0.5em;
+  margin: 0;
+  background: #54d4a0;
+  border: none;
+  border-right-width: 0;
+}

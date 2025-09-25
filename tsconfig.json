@@ -10,7 +10,8 @@
     "outDir": "dist"
   },
   "files": [
-    "types/utils.d.ts"
+    "types/utils.d.ts",
+    "types/styles.d.ts"
   ],
   "include": [
     "next-env.d.ts",
@@ -20,8 +21,6 @@
   "exclude": [
     "node_modules",
     "dist",
-    ".next",
-    "**/*.test.ts",
-    "**/*.test.tsx"
+    ".next"
   ]
 }

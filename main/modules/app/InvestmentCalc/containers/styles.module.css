@@ -1,0 +1,44 @@
+.main {
+  padding-bottom: 4.75rem;
+}
+
+.main__content {
+  background-color: rgba(var(--theme-background));
+  padding-top: 2rem;
+}
+
+.main__layout-result-col {
+  margin-top: 4.375rem;
+}
+
+.main__layout {
+  gap: 2rem;
+}
+.main__layout > * {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 1 0;
+  width: 100%;
+}
+
+@media screen and (min-width: 80rem) {
+  .main__content {
+    background-color: rgba(var(--theme-background));
+    padding-top: 5rem;
+  }
+
+  .main__layout {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .main__layout-form-col {
+    max-width: 43.75rem;
+    margin-top: 0;
+  }
+
+  .main__layout-result-col {
+    max-width: 41.187rem;
+    margin-top: 0;
+  }
+}
