@@ -5,7 +5,7 @@
 
 Um simulador de investimentos moderno e interativo, construído com Next.js e TypeScript. A aplicação permite que os usuários calculem e comparem a rentabilidade de um investimento inicial somado a aportes mensais, contrastando a performance da Taxa Selic com a do Fundo Arca.
 
-![Captura de tela do Simulador de Investimentos](https://i.imgur.com/kYQ101e.png)
+![Captura de tela do Simulador de Investimentos](https://github.com/alencarftc/primo-invest-calc/blob/feature/base/docs/screenshots/Calculadora%20-%20desktop.png)
 
 ## ✨ Features
 
