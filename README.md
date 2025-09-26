@@ -1,33 +1,76 @@
 # Simulador de Investimentos - Primo Invest Calc
 
-![CI/CD Pipeline](https://github.com/alencarftc/primo-invest-calc/actions/workflows/main.yml/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-Um simulador de investimentos moderno e interativo, construído com Next.js e TypeScript. A aplicação permite que os usuários calculem e comparem a rentabilidade de um investimento inicial somado a aportes mensais, contrastando a performance da Taxa Selic com a do Fundo Arca.
+Desafio front-end da empresa Grupo Primo: Um simulador de investimentos moderno e interativo, construído com Next.js e TypeScript. A aplicação permite que os usuários calculem e comparem a rentabilidade de um investimento inicial somado a aportes mensais, contrastando a performance da Taxa Selic com a do Fundo Arca, seguindo o padrão de arquitetura MVVM.
 
-![Captura de tela do Simulador de Investimentos](https://github.com/alencarftc/primo-invest-calc/blob/feature/base/docs/screenshots/Calculadora%20-%20desktop.png)
+Detalhes disponíveis em: [desafio.md](docs/desafio.md)
 
-## ✨ Features
+![Captura de tela do Simulador de Investimentos](docs/prototype/desktop.png)
 
-- **Simulação Dinâmica**: Os cálculos são atualizados em tempo real conforme o usuário ajusta os valores nos sliders.
-- **Componentes Acessíveis**: O componente de Slider foi desenvolvido seguindo as diretrizes de acessibilidade WAI-ARIA, garantindo usabilidade via teclado e para leitores de tela.
-- **Design Responsivo**: Interface adaptada para uma experiência de usuário consistente em desktops e dispositivos móveis.
-- **Qualidade de Código**: O projeto é mantido com ferramentas de alta qualidade como Biome (linting e formatação) e Lefthook (Git hooks) para garantir a consistência do código.
-- **Componentização com Storybook**: Os componentes de UI são desenvolvidos e documentados de forma isolada utilizando o Storybook.
+## 🎨 Protótipo (Figma)
+
+O design da interface e a experiência do usuário foram planejados no Figma. Você pode acessar o protótipo através do link abaixo:
+
+- **[Acessar o Protótipo no Figma](https://www.figma.com/design/N1MRNvIBNwzXXu0w5N9P3w/Calculadora-Grupo-Primo?node-id=0-1&t=WhKV1bPD8G2V2xRG-1)**
+
+## 🎯 Requisitos do Projeto
+
+O desenvolvimento foi guiado pelos seguintes requisitos funcionais e não-funcionais.
+
+### Requisitos Funcionais
+
+- O usuário deve conseguir calcular o rendimento de um investimento com sucesso.
+- As taxas SELIC e do Fundo Arca devem ser atualizadas conforme a cotação (neste caso, hardcoded para a simulação).
+
+### Requisitos Não-Funcionais
+
+1.  **Confiável**: Cálculos precisos e comportamento previsível.
+2.  **Disponível**: Acesso garantido através de deploy otimizado na Vercel.
+3.  **Acessível**: Conformidade com as diretrizes do WCAG, garantindo usabilidade para todos.
+4.  **Responsivo**: Experiência de usuário fluida em desktops e dispositivos móveis.
+5.  **Performático**: Carregamento rápido e interações instantâneas.
+
+## 🚀 Design System
+
+![Requisitos e Estrutura](docs/screenshots/design_system.png)
+
+## 🏛️ Arquitetura e Padrão de Projeto
+
+O projeto foi estruturado utilizando o padrão de arquitetura **MVVM (Model-View-ViewModel)** para garantir uma separação clara de responsabilidades, alta testabilidade e manutenibilidade do código.
+
+![Diagrama de Arquitetura MVVM](docs/screenshots/mvvm_architecture.png)
+
+- **View**: A camada de interface do usuário, composta por componentes React passivos (`Form`, `Result`). É responsável apenas por exibir os dados e capturar as interações do usuário.
+- **Model**: Gerencia o estado da aplicação. No nosso caso, o `ResultState` que contém os valores do resultado da simulação feita pelo usuário.
+- **ViewModel** (`InvestmentCalc` container): Atua como a ponte entre o Model e a View. Ele recebe os eventos da View, aciona os UseCases (lógica de negócio), atualiza o Model e expõe os dados formatados para a View. Os dados iniciais (taxas) são injetados via SSR.
+- **UseCase** (`calculateInvestment`): Uma função pura que contém a lógica de negócio central. Ela recebe os dados do formulário e as taxas, e retorna o resultado do cálculo, sem acoplamento com a UI.
+
+## ⚡ Performance
+
+A aplicação foi otimizada para performance, alcançando **pontuações máximas** nas métricas do Google Lighthouse e excelentes Core Web Vitals, garantindo uma experiência de usuário extremamente rápida.
+
+![Relatório Lighthouse de Performance](docs/screenshots/desktop_lighthouse_report.png)
+
+- **First Contentful Paint (FCP):** **0.2s**
+- **Largest Contentful Paint (LCP):** **0.5s**
+- **Total Blocking Time (TBT):** **0 ms**
+- **Cumulative Layout Shift (CLS):** **0**
 
 ## 🛠️ Tech Stack
 
-A aplicação foi construída com um conjunto de tecnologias modernas focadas em performance, qualidade e experiência do desenvolvedor:
-
 - **Framework**: [Next.js](https://nextjs.org/) (com Pages Router e Turbopack)
 - **Linguagem**: [TypeScript](https://www.typescriptlang.org/)
-- **Estilização**: CSS Modules
-- **Testes**: [Jest](https://jestjs.io/) e [React Testing Library](https://testing-library.com/)
-- **Qualidade de Código**: [Biome](https://biomejs.dev/) (Linting e Formatação)
+- **Deployment**: [Vercel](https://vercel.com/)
+- **Estilização**: CSS Modules + BEM
+- **Testes Unitários/Integração**: [Jest](https://jestjs.io/), [React Testing Library](https://testing-library.com/)
+- **Testes End-to-End**: [Cypress](https://www.cypress.io/)
+- **Mocking de API**: [Mock Service Worker (MSW)](https://mswjs.io/)
+- **Qualidade de Código**: [ESLint](https://eslint.org/) e [Prettier](https://prettier.io/)
 - **Desenvolvimento de Componentes**: [Storybook](https://storybook.js.org/)
 - **Gerenciador de Pacotes**: [pnpm](https://pnpm.io/)
 - **Git Hooks**: [Lefthook](https://github.com/evilmartians/lefthook)
-- **CI/CD**: GitHub Actions
+- **CI/CD**: Vercel
 
 ## 📂 Estrutura do Projeto
 
@@ -38,84 +81,61 @@ primo-invest-calc/
 ├── .github/              # Workflows de CI/CD (GitHub Actions)
 ├── .lefthook/            # Configuração dos Git Hooks
 ├── public/               # Arquivos estáticos (imagens, fontes)
-├── scripts/              # Scripts de automação (build, deploy, etc.)
+├── scripts/              # Scripts de automação (build, test, etc.)
 ├── stories/              # Arquivos de histórias do Storybook (*.stories.tsx)
-├── tests/                # Utilitários de testes e configurações do Jest
+├── tests/                # Utilitários, mocks e configurações de teste
 ├── types/                # Definições de tipos globais do TypeScript (*.d.ts)
 └── main/
     └── modules/          # Contêiner para os principais módulos da aplicação
-        ├── core/         # Funcionalidades centrais e compartilhadas (hooks, utils, providers)
-        ├── ds/           # Design System: componentes de UI, tokens e contratos de estilo
+        ├── core/         # Funcionalidades centrais e compartilhadas (hooks, utils)
+        ├── ds/           # Design System: componentes de UI, tokens e contratos
         └── app/          # Módulo principal da aplicação de investimento
             └── InvestmentCalc/   # Feature específica do Simulador de Investimento
                 ├── api/          # Rotas de API (server-side handlers)
-                ├── components/   # Componentes React de UI, reutilizáveis ('dumb components')
+                ├── components/   # Componentes React de UI ('dumb components')
                 ├── containers/   # Componentes que gerenciam estado e lógica ('smart components')
-                ├── models/       # Definições de tipos para estruturas de dados (ex: InvestmentForm)
+                ├── models/       # Definições de tipos para estruturas de dados
                 ├── pages/        # Páginas da aplicação e sistema de rotas (Next.js)
-                ├── rules/        # Lógica de negócio e regras de cálculo do simulador
-                └── utils/        # Funções utilitárias específicas desta feature
+                ├── rules/        # Lógica de negócio e regras de cálculo
+                └── utils/        # Funções utilitárias específicas da feature
 ```
 
 ## 🚀 Começando
 
-Siga os passos abaixo para configurar e rodar o projeto localmente.
-
 ### Pré-requisitos
 
-- [Node.js](https://nodejs.org/) (versão 20.x ou superior)
+- [Node.js](https://nodejs.org/) (**versão 22.x ou superior**)
 - [pnpm](https://pnpm.io/installation)
 
 ### Instalação
 
-1.  **Clone o repositório:**
+1.  **Clone o repositório:** `git clone https://github.com/alencarftc/primo-invest-calc.git`
+2.  **Entre na pasta:** `cd primo-invest-calc`
+3.  **Instale as dependências:** `pnpm install`
+4.  **Rode o servidor de desenvolvimento:** `pnpm dev`
 
-    ```bash
-    git clone [https://github.com/alencarftc/primo-invest-calc.git](https://github.com/alencarftc/primo-invest-calc.git)
-    ```
-
-2.  **Navegue até a pasta do projeto:**
-
-    ```bash
-    cd primo-invest-calc
-    ```
-
-3.  **Instale as dependências:**
-
-    ```bash
-    pnpm install
-    ```
-
-4.  **Rode o servidor de desenvolvimento:**
-    ```bash
-    pnpm dev
-    ```
-
-Agora, abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver a aplicação em funcionamento.
+Abra [http://localhost:3000](http://localhost:3000) no seu navegador.
 
 ## 📜 Scripts Disponíveis
 
-- `pnpm dev`: Inicia a aplicação em modo de desenvolvimento com Turbopack.
-- `pnpm build`: Gera a build de produção da aplicação.
-- `pnpm start`: Inicia um servidor de produção com a build gerada.
-- `pnpm test`: Roda a suíte de testes unitários com Jest.
-- `pnpm test:watch`: Roda os testes em modo interativo (watch mode).
-- `pnpm lint`: Verifica e corrige problemas de lint e formatação com o Biome.
-- `pnpm storybook`: Inicia o ambiente do Storybook para visualização dos componentes.
-
-## ✅ Testes
-
-Os testes são fundamentais para garantir a qualidade e a estabilidade da aplicação. Utilizamos Jest e React Testing Library para testar os componentes e a lógica de negócio.
-
-Para rodar todos os testes, execute:
-
-```bash
-pnpm test
-```
+| Comando                | Descrição                                                          |
+| ---------------------- | ------------------------------------------------------------------ |
+| `pnpm dev`             | Inicia a aplicação em modo de desenvolvimento com Turbopack.       |
+| `pnpm build`           | Executa o script de build customizado (ver `./scripts/build.sh`).  |
+| `pnpm build:final`     | Executa o script de build para o ambiente de produção.             |
+| `pnpm start`           | Inicia um servidor de produção com a build gerada.                 |
+| `pnpm test`            | Roda a suíte de testes completa com Jest.                          |
+| `pnpm test:dev`        | Roda testes em arquivos específicos com cobertura de código.       |
+| `pnpm type-check`      | Verifica a tipagem de todo o projeto com TypeScript.               |
+| `pnpm lint`            | Roda o ESLint para encontrar e corrigir problemas no código.       |
+| `pnpm lint:check`      | Roda o ESLint apenas para verificar (sem corrigir), ideal para CI. |
+| `pnpm format`          | Roda o Prettier para formatar todos os arquivos do projeto.        |
+| `pnpm format:check`    | Roda o Prettier para verificar a formatação (sem corrigir).        |
+| `pnpm validate`        | Executa todas as checagens de qualidade: tipos, lint e formatação. |
+| `pnpm storybook`       | Inicia o ambiente do Storybook para visualização dos componentes.  |
+| `pnpm build-storybook` | Gera a build estática do Storybook.                                |
 
 ## 🤝 Contribuindo
-
-Contribuições são bem-vindas! Se você tem alguma ideia para melhorar o projeto, sinta-se à vontade para seguir os passos abaixo:
 
 1.  Faça um **Fork** do repositório.
 2.  Crie uma nova **Branch** (`git checkout -b feature/sua-feature`).
