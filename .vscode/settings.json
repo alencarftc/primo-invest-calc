@@ -1,6 +1,13 @@
 {
+  "typescript.tsdk": "node_modules\\typescript\\lib",
   "typescript.preferences.preferTypeOnlyAutoImports": true,
   "editor.codeActionsOnSave": {
-    "source.organizeImports.biome": "explicit"
+    "source.fixAll": "always",
+    "source.organizeImports": "explicit"
+  },
+  "search.exclude": {
+    "**/.next": true,
+    "**/node_modules": false,
+    "**/dist": false
   }
 }

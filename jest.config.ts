@@ -11,9 +11,10 @@ const createJestConfig = nextJest({
 })
 
 const config: Config = {
-  bail: 0,
+  automock: false,
   clearMocks: true,
-  collectCoverage: true,
+  restoreMocks: true,
+  testTimeout: 5000,
   coverageDirectory: 'coverage',
   coverageProvider: 'v8',
   coverageThreshold: {
@@ -24,11 +25,34 @@ const config: Config = {
       statements: 80,
     },
   },
+  collectCoverageFrom: [
+    'main/**/*.{js,jsx,ts,tsx}',
+    '!main/**/types/**/*.ts',
+    '!**/*.d.ts',
+    '!**/node_modules/**',
+    '!<rootDir>/out/**',
+    '!<rootDir>/.next/**',
+    '!<rootDir>/coverage/**',
+  ],
+  transform: {
+    '^.+\\.(ts|tsx)$': 'ts-jest',
+  },
+  injectGlobals: true,
+  transformIgnorePatterns: ['/node_modules/', '^.+\\.module\\.(css|sass|scss)$'],
+  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
+  setupFilesAfterEnv: ['<rootDir>/tests/setupAfterEnv.ts'],
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['<rootDir>/tests/setup.ts'],
+  moduleDirectories: ['node_modules'],
   moduleNameMapper: {
-    '@assets/*': ['./main/assets/*'],
-    '@core/*': ['./main/modules/core/*'],
+    '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
+    '^.+\\.(css|sass|scss)$': '<rootDir>/tests/mocks/styleMock.mjs',
+    '^.+\\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg)$': `<rootDir>/tests/mocks/fileMock.mjs`,
+
+    '^@cgp-tests(.*)$': ['<rootDir>/tests/$1'],
+    '^@cgp-assets(.*)$': ['<rootDir>/main/assets/*'],
+    '^@cgp-ds(.*)$': ['<rootDir>/main/modules/ds/*'],
+    '^@cgp-core(.*)$': ['<rootDir>/main/modules/core/*'],
+    '^@cgp(.*)$': ['<rootDir>/main/modules/app/*'],
   },
 }
 
