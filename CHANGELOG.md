@@ -1,4 +1,11 @@
-[1.0.1] - 2025-09-25
+[1.0.3] - 2025-09-25
+Correção do funcionamento da calculadora.
+
+## Fixed
+
+- Corrige inversão de dependência. (17dc0db)
+
+[1.0.2] - 2025-09-25
 Correção de pipeline.
 
 ## Fixed
