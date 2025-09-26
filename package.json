@@ -1,14 +1,14 @@
 {
   "name": "primo-invest-calc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
-    "prepare": "lefthook install",
     "dev": "next dev --turbopack",
     "test": "jest --max-workers=50%",
     "test:dev": "./scripts/test_files_w_coverage.sh",
     "build": "./scripts/build.sh",
     "build:final": "NODE_ENV=production ./scripts/build.sh",
+    "build:ci": "NODE_ENV=production next build --turbopack",
     "type-check": "tsc --noEmit",
     "lint": "eslint . --ext .ts,.tsx --fix",
     "lint:check": "eslint . --ext .ts,.tsx",

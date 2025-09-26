@@ -1,3 +1,11 @@
+[1.0.1] - 2025-09-25
+Correção de pipeline.
+
+## Fixed
+
+- Corrige script de build para PRD. (5ce7e4f)
+- Corrige lockfile removendo dependência inexistente. (5ce7e4f)
+
 [1.0.0] - 2025-09-25
 Esta é a primeira versão estável do Simulador de Investimentos, incluindo a implementação completa da interface, lógica de cálculo, suíte de testes e pipeline de CI/CD.
 
