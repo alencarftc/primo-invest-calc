@@ -8,5 +8,8 @@ const AllTheProviders = ({ children }: { children: ReactNode }) => {
 const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>) =>
   render(ui, { wrapper: AllTheProviders, ...options })
 
+export * from '@jest/globals'
 export * from '@testing-library/react'
 export { customRender as render }
+
+export { server } from './msw/server'
