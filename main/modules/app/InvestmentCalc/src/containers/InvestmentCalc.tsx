@@ -3,7 +3,7 @@ import { Banner } from '@cgp/InvestmentCalc/src/components/Banner'
 import { Form } from '@cgp/InvestmentCalc/src/components/Form'
 import { Header } from '@cgp/InvestmentCalc/src/components/Header'
 import { Result } from '@cgp/InvestmentCalc/src/components/Result'
-import type { SetupResponseData } from '@cgp/InvestmentCalc/types/setup'
+import type { InvestmentForm, SetupResponseData } from '@cgp/InvestmentCalc/types/setup'
 
 import { ErrorBanner } from '../components/ErrorBanner'
 import { FORM_CONFIG } from '../config/form'
@@ -13,8 +13,12 @@ import styles from './styles.module.css'
 
 export const InvestmentCalc = ({ data, error }: SetupResponseData) => {
   const { values, updated_at } = data
-  const { result, handleOnFormChange } = useInvestmentCalc(() =>
-    calculateInvestment(FORM_CONFIG.initialValues, values),
+
+  const calculateWithRates = (form: InvestmentForm) => calculateInvestment(form, values)
+
+  const { result, handleOnFormChange } = useInvestmentCalc(
+    FORM_CONFIG.initialValues,
+    calculateWithRates,
   )
 
   return (

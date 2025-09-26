@@ -25,7 +25,7 @@ describe('InvestmentCalc', () => {
       expect(screen.getByRole('slider', { name: PERIOD_SLIDER_LABEL })).toBeInTheDocument()
     })
 
-    it('should calculate investiment successfully', () => {
+    it('should calculate investment successfully', () => {
       // arrange
       render(
         <InvestmentCalc
@@ -49,6 +49,32 @@ describe('InvestmentCalc', () => {
       expect(screen.getByText('Em 12 meses você teria:')).toBeInTheDocument()
       expect(screen.getByText('R$ 1.361,55 investindo na taxa Selic')).toBeInTheDocument()
       expect(screen.getByText('R$ 1.418,47 investindo no Fundo Arca')).toBeInTheDocument()
+    })
+
+    it('should calculate large investiment successfully', () => {
+      // arrange
+      render(
+        <InvestmentCalc
+          data={{ values: { selic: 9.25, arca: 18 }, updated_at: '24/09/2025' }}
+          error={null}
+        />,
+      )
+
+      // act
+      fireEvent.change(screen.getByRole('slider', { name: BASE_SLIDER_LABEL }), {
+        target: { value: '1000' },
+      })
+      fireEvent.change(screen.getByRole('slider', { name: RECURRENT_SLIDER_LABEL }), {
+        target: { value: '800' },
+      })
+      fireEvent.change(screen.getByRole('slider', { name: PERIOD_SLIDER_LABEL }), {
+        target: { value: '12' },
+      })
+
+      // assert
+      expect(screen.getByText('Em 12 meses você teria:')).toBeInTheDocument()
+      expect(screen.getByText('R$ 11.111,62 investindo na taxa Selic')).toBeInTheDocument()
+      expect(screen.getByText('R$ 11.585,17 investindo no Fundo Arca')).toBeInTheDocument()
     })
   })
 
