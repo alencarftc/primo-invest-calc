@@ -4,7 +4,6 @@ const isProduction = process.env.NODE_ENV === 'production'
 
 const nextConfig: NextConfig = {
   experimental: {
-    serverSourceMaps: isProduction,
     preloadEntriesOnStart: false,
   },
   eslint: {
@@ -15,7 +14,6 @@ const nextConfig: NextConfig = {
   },
   productionBrowserSourceMaps: isProduction,
   reactStrictMode: true,
-  distDir: 'dist',
 }
 
 const withBundleAnalyzer =
