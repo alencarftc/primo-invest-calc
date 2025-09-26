@@ -2,15 +2,12 @@ import { cx } from '@cgp-core/src/utils'
 import { ScreenReaderText } from '@cgp-ds/src/components/ScreenReaderText'
 import Typography from '@cgp-ds/src/components/Typography'
 import { formatCurrency } from '@cgp/InvestmentCalc/src/utils/string'
+import type { FormResult } from '@cgp/InvestmentCalc/types/setup'
 import Image from 'next/image'
 import styles from './styles.module.css'
 
-type ResultProps = {
-  result: {
-    selic: number
-    arca: number
-    period: number
-  }
+export type ResultProps = {
+  result: FormResult
   taxes: {
     selic: number
     arca: number

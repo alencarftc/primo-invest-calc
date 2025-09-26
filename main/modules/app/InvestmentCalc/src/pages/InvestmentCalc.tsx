@@ -15,6 +15,11 @@ const InvestmentCalcPage: NextPage<InvestmentCalcPageProps> = ({ data, error }) 
   return (
     <>
       <Head>
+        <title>Simulador de Investimento - Grupo Primo</title>
+        <meta
+          name="description"
+          content="Descubra o quanto você pode economizar. Acesse o simulador de investimento do Grupo Primo e conheça o Fundo Arca."
+        />
         <link rel="preload" href="/assets/images/logo-arca.svg" as="image" type="image/svg+xml" />
       </Head>
       <InvestmentCalc data={data} error={error} />

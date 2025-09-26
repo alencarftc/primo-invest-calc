@@ -1,8 +1,8 @@
 import type { InvestmentForm } from '@cgp/InvestmentCalc/types/setup'
 import { describe, expect, it } from '@jest/globals'
-import { calculateResult } from './calculateInvestment'
+import { calculateInvestment } from './calculateInvestment'
 
-describe('calculateResult', () => {
+describe('calculateInvestment', () => {
   it('should calculate the final amount correctly for a standard scenario', () => {
     // arrange
     const form: InvestmentForm = { base: 1000, recurrent: 100, period: 12 }
@@ -12,7 +12,7 @@ describe('calculateResult', () => {
     const expectedArca = 2486.77
 
     // act
-    const result = calculateResult(form, values)
+    const result = calculateInvestment(form, values)
 
     // assert
     expect(result.period).toBe(form.period)
@@ -29,7 +29,7 @@ describe('calculateResult', () => {
     const expectedArca = 1458.88
 
     // act
-    const result = calculateResult(form, values)
+    const result = calculateInvestment(form, values)
 
     // assert
     expect(result.selic).toBeCloseTo(expectedSelic, 2)
@@ -45,7 +45,7 @@ describe('calculateResult', () => {
     const expectedArca = 1299.77
 
     // act
-    const result = calculateResult(form, values)
+    const result = calculateInvestment(form, values)
 
     // assert
     expect(result.selic).toBeCloseTo(expectedSelic, 2)
@@ -58,7 +58,7 @@ describe('calculateResult', () => {
     const values = { selic: 9.25, arca: 18.0 }
 
     // act
-    const result = calculateResult(form, values)
+    const result = calculateInvestment(form, values)
 
     // assert
     expect(result.selic).toBe(form.base)
@@ -72,7 +72,7 @@ describe('calculateResult', () => {
     const totalInvested = form.base + form.recurrent * form.period
 
     // act
-    const result = calculateResult(form, values)
+    const result = calculateInvestment(form, values)
 
     // assert
     expect(result.selic).toBe(totalInvested)

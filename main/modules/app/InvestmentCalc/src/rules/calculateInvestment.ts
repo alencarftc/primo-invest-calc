@@ -2,7 +2,7 @@ import type { InvestmentForm } from '@cgp/InvestmentCalc/types/setup'
 
 const YEAR_BUSINESS_DAYS_QUANTITY = 252
 
-function calculateInvestment(
+function calculateTaxInvestment(
   baseValue: number,
   recurrentValue: number,
   months: number,
@@ -24,9 +24,12 @@ function calculateInvestment(
   return total
 }
 
-export const calculateResult = (form: InvestmentForm, values: { selic: number; arca: number }) => {
-  const selic = calculateInvestment(form.base, form.recurrent, form.period, values.selic / 100)
-  const arca = calculateInvestment(form.base, form.recurrent, form.period, values.arca / 100)
+export const calculateInvestment = (
+  form: InvestmentForm,
+  values: { selic: number; arca: number },
+) => {
+  const selic = calculateTaxInvestment(form.base, form.recurrent, form.period, values.selic / 100)
+  const arca = calculateTaxInvestment(form.base, form.recurrent, form.period, values.arca / 100)
 
   return {
     arca,

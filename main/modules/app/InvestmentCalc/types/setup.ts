@@ -13,6 +13,12 @@ export type SetupResponseData = {
   }
 }
 
+export type FormResult = {
+  selic: number
+  arca: number
+  period: number
+}
+
 export type InvestmentForm = {
   base: number
   recurrent: number
